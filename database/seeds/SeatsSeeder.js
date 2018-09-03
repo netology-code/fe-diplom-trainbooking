@@ -1,5 +1,7 @@
+import moment from 'moment';
 import { times, uniq, compose, dec } from 'ramda';
 import Seeder from './Seeder';
+import { toSeconds } from '../../backend/helpers/route';
 
 const rand = ( min, max ) => Math.round(
     Math.random() * ( max - min ) + min
@@ -51,7 +53,11 @@ class SeatsSeeder extends Seeder {
             coach: coach._id,
             is_child: boolRand(),
             is_wifi_included: boolRand(),
-            is_linens_included: boolRand()
+            is_linens_included: boolRand(),
+            datetime: toSeconds( moment()
+              .add( rand( -10, 10 ), 'days' )
+              .add( rand( -10, 10 ), 'hours' )
+              .add( rand( -10, 10 ), 'minutes' ))
           };
           await Seat.create( attributes );
           await Route.update({

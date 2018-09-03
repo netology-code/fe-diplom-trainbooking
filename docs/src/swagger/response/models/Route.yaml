@@ -33,7 +33,7 @@ properties:
     $ref: './RouteDirection.yaml'
     description: Информация о поездке туда
   departure:
-    $ref: './Ro uteDirection.yaml'
+    $ref: './RouteDirection.yaml'
     description: Информация о поездке обратно (если это требуется)
 
   total_avaliable_seats:

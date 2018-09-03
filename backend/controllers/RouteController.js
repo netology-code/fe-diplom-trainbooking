@@ -15,6 +15,20 @@ class RouteController extends Controller {
     app.get( '/routes', cors(), this.actionRoutes.bind( this ));
     app.get( '/routes/:id/seats', cors(), this.actionSeats.bind( this ));
     app.get( '/routes/cities', cors(), this.actionCities.bind( this ));
+    app.get( '/routes/last', cors(), this.actionLastRoutes.bind( this ));
+  }
+  async actionLastRoutes( req, res ) {
+    const { Route } = this.app.db.models,
+      routes = await Route.find({})
+        .populate( 'train' )
+        .populate( 'from_city' )
+        .populate( 'to_city' )
+        .populate( 'from_railway_station' )
+        .populate( 'to_railway_station' )
+        .limit( 5 )
+        .sort( '_id DESC' ),
+      items = toRouteItems( routes );
+    return res.send( items );
   }
   async actionSeats( req, res ) {
     const { params } = req,

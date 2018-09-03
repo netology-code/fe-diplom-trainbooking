@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import controllers from '../controllers';
 import Db from './Db';
@@ -32,9 +33,9 @@ class App {
     });
   }
   applyMiddleware() {
-    const app = this.express,
-      config = this._config.cors;
-    app.use( cors( config ));
+    const app = this.express;
+    app.use( cors());
+    app.use( bodyParser.json());
   }
   onStart() {
     console.log( `Сервер запущен по адресу: ${this._url}` );

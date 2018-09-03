@@ -28,6 +28,12 @@ const Seat = Waterline.Collection.extend({
     },
     is_linens_included: {
       type: 'boolean'
+    },
+    include_children_seat: {
+      type: 'boolean'
+    },
+    datetime: {
+      type: 'number'
     }
   }
 });

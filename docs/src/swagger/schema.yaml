@@ -37,6 +37,18 @@ paths:
           schema:
             $ref: './response/routes.yaml'
 
+  /routes/last:
+    get:
+      tags: [ 'Направления' ]
+      description: Возвращает последние 5 направлений
+      responses:
+        200:
+          description: Список направлений
+          schema:
+            type: array
+            items:
+              $ref: './response/models/Route.yaml'
+
   /routes/{id}/seats:
     get:
       tags: [ 'Направления' ]

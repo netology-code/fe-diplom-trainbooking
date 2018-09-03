@@ -10,15 +10,15 @@ properties:
     items:
       type: object
       properties:
-        seat_id:
-          description: Идентификатор места
-          type: number
-        type:
-          description: Тип места (взрослый, детский)
+        coach_id:
+          description: Идентификатор вагона
           type: string
-          enum:
-            - adult
-            - child
+        seat_number:
+          description: Номер места в вагоне
+          type: number
+        is_child:
+          description: Детский билет
+          type: boolean
         include_children_seat:
           description: '
             Необходимо ли доп. место для билета «Детский без места»?
