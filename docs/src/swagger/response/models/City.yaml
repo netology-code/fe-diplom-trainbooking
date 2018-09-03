@@ -1,0 +1,9 @@
+type: object
+description: Город
+properties:
+  _id:
+    type: string
+    description: Идентификатор
+  name:
+    type: string
+    description: Название

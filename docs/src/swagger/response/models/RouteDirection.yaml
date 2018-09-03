@@ -1,0 +1,78 @@
+type: object
+description: Поездка в один конец
+properties:
+  _id:
+    type: string
+    description: Идентификатор
+
+  have_first_class:
+    type: boolean
+    description: В поезде есть вагоны класса «Люкс» (СВ)
+  have_second_class:
+    type: boolean
+    description: В поезде есть вагоны класса «Купе»
+  have_third_class:
+    type: boolean
+    description: В поезде есть вагоны класса «Плацкарт»
+  have_fourth_class:
+    type: boolean
+    description: В поезде есть вагоны с сидячими местами
+  have_wifi:
+    type: boolean
+    description: '
+      Есть Wi-Fi?
+      (даже если этот флаг указан, Wi-Fi может быть не в каждом вагоне)
+    '
+  have_air_conditioning:
+    type: boolean
+    description: '
+      Есть кондиционер?
+      (даже если этот флаг указан, кондиционер может быть не в каждом вагоне)
+    '
+  train:
+    $ref: './Train.yaml'
+  from:
+    type: object
+    description: Информация об отправлении
+    properties:
+      railway_station_name:
+        type: string
+        description: Название ж/д вокзала
+      city:
+        $ref: './City.yaml'
+      datetime:
+        type: number
+
+  to:
+    type: object
+    description: Информация о прибытии
+    properties:
+      railway_station_name:
+        type: string
+        description: Название ж/д вокзала
+      city:
+        $ref: './City.yaml'
+      datetime:
+        type: number
+        description: Время в секундах
+
+  min_price:
+    type: number
+    description: Минимальная цена поездки (на 1 взрослого)
+  duration:
+    type: number
+    description: Длительность поездки (в секундах)
+  price_info:
+    $ref: './RouteInfo.yaml'
+  seats_info:
+    type: object
+    description: Информация о количестве свободных мест в каждом типе вагонов
+    properties:
+      first:
+        type: number
+      second:
+        type: number
+      third:
+        type: number
+      fourth:
+        type: number

@@ -1,0 +1,13 @@
+- name: data
+  description: Информация о заказе
+  in: body
+  required: true
+  schema:
+    type: object
+    properties:
+      departure:
+        $ref: './models/OrderDirection.yaml'
+        description: Информация об отбытии
+      arrival:
+        $ref: './models/OrderDirection.yaml'
+        description: Информация о прибытии

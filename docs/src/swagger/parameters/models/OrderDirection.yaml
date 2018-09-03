@@ -1,0 +1,28 @@
+type: object
+description: Информация о направлении в заказе
+properties:
+  route_direction_id:
+    description: Идентификатор направления в заказе
+    type: string
+  seats:
+    type: array
+    description: Список заказанных мест
+    items:
+      type: object
+      properties:
+        seat_id:
+          description: Идентификатор места
+          type: number
+        type:
+          description: Тип места (взрослый, детский)
+          type: string
+          enum:
+            - adult
+            - child
+        include_children_seat:
+          description: '
+            Необходимо ли доп. место для билета «Детский без места»?
+            Доступно только для взрослого места.
+          '
+          type: boolean
+

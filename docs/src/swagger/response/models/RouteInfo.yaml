@@ -1,0 +1,14 @@
+type: object
+properties:
+  first:
+    $ref: './CoachInfo.yaml'
+    description: Информация о вагонах класса «Люкс»
+  second:
+    $ref: './CoachInfo.yaml'
+    description: Информация о вагонах класса «Купе»
+  third:
+    $ref: './CoachInfo.yaml'
+    description: Информация о вагонах класса «Плацкарт»
+  fourth:
+    $ref: './CoachInfo.yaml'
+    description: Информация о вагонах с сидячими местами

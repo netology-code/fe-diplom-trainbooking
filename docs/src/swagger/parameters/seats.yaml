@@ -1,0 +1,30 @@
+- name: id
+  description: Идентификатор направления
+  in: path
+  type: string
+  required: true
+- name: is_first_class
+  description: Люкс
+  type: boolean
+  in: query
+- name: is_second_class
+  description: Купе
+  type: boolean
+  in: query
+- name: is_third_class
+  description: Плацкарт
+  type: boolean
+  in: query
+- name: is_fourth_class
+  description: Сидячее место
+  type: boolean
+  in: query
+
+- name: have_wifi
+  description: Имеется WiFi
+  type: boolean
+  in: query
+- name: have_air_conditioning
+  description: Имеется кондиционер
+  type: boolean
+  in: query

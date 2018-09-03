@@ -1,0 +1,5 @@
+- name: name
+  description: Город (допускается указывать часть названия)
+  required: true
+  in: query
+  type: string

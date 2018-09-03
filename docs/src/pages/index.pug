@@ -1,0 +1,15 @@
+doctype html
+html(lang="ru")
+    head
+        title Документация по сервису TrainBooking
+        meta(charset="utf-8")
+
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="robots", content="noindex")
+
+        if htmlWebpackPlugin.options.env === 'production'
+            // critical CSS
+            style!= htmlWebpackPlugin.options.getCriticalCSS( htmlWebpackPlugin, compilation )
+    body
+        #api-root
+        script(src="bundle.js" async)

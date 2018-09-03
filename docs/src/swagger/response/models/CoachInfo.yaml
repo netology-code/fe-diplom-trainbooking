@@ -1,0 +1,22 @@
+type: object
+description: Сводная информация о вагоне
+properties:
+  price:
+    type: number
+    description: Цена за место (в случае варианта люкс)
+  top_price:
+    type: number
+    description: Цена верхнего места
+  bottom_price:
+    type: number
+    description: Цена нижнего места
+  side_price:
+    type: number
+    description: Цена бокового места
+  linens_price:
+    type: number
+    description: Цена постельного белья
+  wifi_price:
+    type: number
+    description: Цена услуги Wi-Fi
+

@@ -1,0 +1,9 @@
+type: object
+properties:
+  total_count:
+    type: number
+    description: Общее число результатов на странице
+  items:
+    type: array
+    items:
+      $ref: './models/Route.yaml'

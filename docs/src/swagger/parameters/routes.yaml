@@ -1,0 +1,136 @@
+- name: from_city_id
+  description: Идентификатор города, откуда планируется путешествие
+  in: query
+  type: string
+  required: true
+- name: to_city_id
+  description: Идентификатор города, куда планируется путешествие
+  in: query
+  type: string
+  required: true
+
+- name: date_start
+  description: Дата отбытия туда (в формате YYYY-DD-MM; например 2030-03-01)
+  type: string
+  format: date
+  in: query
+- name: date_end
+  description: Дата отбытия обратно (в формате YYYY-DD-MM; например 2030-03-01)
+  type: string
+  format: date
+  in: query
+
+- name: date_start_arrival
+  description: Дата прибытия туда (в формате YYYY-DD-MM; например 2030-03-01)
+  type: string
+  format: date
+  in: query
+- name: date_end_arrival
+  description: Дата прибытия обратно (в формате YYYY-DD-MM; например 2030-03-01)
+  type: string
+  format: date
+  in: query
+
+- name: have_first_class
+  description: Люкс
+  type: boolean
+  in: query
+- name: have_second_class
+  description: Купе
+  type: boolean
+  in: query
+- name: have_third_class
+  description: Плацкарт
+  type: boolean
+  in: query
+- name: have_fourth_class
+  description: Сидячее место
+  type: boolean
+  in: query
+
+- name: have_wifi
+  description: Имеется WiFi
+  type: boolean
+  in: query
+- name: have_air_conditioning
+  description: Имеется кондиционер
+  type: boolean
+  in: query
+
+- name: have_express
+  description: Экспресс
+  type: boolean
+  in: query
+
+- name: price_from
+  description: Цена от
+  type: number
+  format: float
+  in: query
+- name: price_to
+  description: Цена до
+  type: number
+  format: float
+  in: query
+
+- name: start_departure_hour_from
+  description: Час отбытия от
+  type: number
+  in: query
+- name: start_departure_hour_to
+  description: Час отбытия до
+  type: number
+  in: query
+- name: start_arrival_hour_from
+  description: Час прибытия от
+  type: number
+  in: query
+- name: start_arrival_hour_to
+  description: Час прибытия до
+  type: number
+  in: query
+
+- name: end_departure_hour_from
+  description: Час отбытия назад от
+  type: number
+  in: query
+- name: end_departure_hour_to
+  description: Час отбытия назад до
+  type: number
+  in: query
+- name: end_arrival_hour_from
+  description: '
+    Час прибытия назад от
+    (работает при установленном параметре date_end)
+  '
+  type: number
+  in: query
+- name: end_arrival_hour_to
+  description: '
+    Час прибытия назад до
+    (работает при установленном параметре date_end)
+  '
+  type: number
+  in: query
+
+
+- name: limit
+  type: number
+  description: Количество результатов на странице
+  minimum: 5
+  maximum: 20
+  in: query
+- name: offset
+  description: '
+    Количество результатов, которое необходимо пропустить в выдаче
+  '
+  type: number
+  in: query
+- name: sort
+  description: Сортировка результатов
+  type: string
+  enum:
+    - date
+    - price
+    - duration
+  in: query

@@ -1,0 +1,41 @@
+type: object
+description: Направление («туда« или «туда и обратно«)
+properties:
+  have_first_class:
+    type: boolean
+    description: В поезде есть вагон класса «Люкс» (СВ)
+  have_second_class:
+    type: boolean
+    description: В поезде есть вагон класса «Купе»
+  have_third_class:
+    type: boolean
+    description: В поезде есть вагон класса «Плацкарт»
+  have_fourth_class:
+    type: boolean
+    description: В поезде есть вагон с сидячими местами
+
+  have_wifi:
+    type: boolean
+    description: Есть Wi-Fi? (на всём направлении)
+  have_air_conditioning:
+    type: boolean
+    description: Есть кондиционер? (на всём направлении)
+
+  is_express:
+    type: boolean
+    description: Экспресс-маршрут (на всём направлении)
+
+  min_price:
+    type: integer
+    description: Минимальная цена поездки (на 1 взрослого)
+
+  arrival:
+    $ref: './RouteDirection.yaml'
+    description: Информация о поездке туда
+  departure:
+    $ref: './Ro uteDirection.yaml'
+    description: Информация о поездке обратно (если это требуется)
+
+  total_avaliable_seats:
+    type: number
+    description: Количество свободных мест

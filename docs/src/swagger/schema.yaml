@@ -1,0 +1,67 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: Netology TrainBooking API
+schemes:
+  - http
+host: localhost:3001
+
+paths:
+  /routes/cities:
+    get:
+      tags: [ 'Города' ]
+      description: '
+        Поиск городов среди возможных направлений
+        (для подсказок в процессе ввода города на главном экране).
+        Выдаёт первые 10 результатов.
+      '
+      parameters:
+        $ref: './parameters/cities.yaml'
+      responses:
+        200:
+          description: Список городов
+          schema:
+            type: array
+            items:
+              $ref: './response/models/City.yaml'
+
+  /routes:
+    get:
+      tags: [ 'Направления' ]
+      description: Поиск направлений
+      parameters:
+        $ref: './parameters/routes.yaml'
+      responses:
+        200:
+          description: Список направлений
+          schema:
+            $ref: './response/routes.yaml'
+
+  /routes/{id}/seats:
+    get:
+      tags: [ 'Направления' ]
+      description: '
+        Информация о посадочных местах определённого направления.
+        Параметры поиска позволят отфильтровать только нужные вагоны в составе
+      '
+      parameters:
+        $ref: './parameters/seats.yaml'
+      responses:
+        200:
+          description: '
+            Список вагонов со свободными местами на основании поиска по параметрам
+          '
+          schema:
+            type: array
+            items:
+              $ref: './response/models/Coach.yaml'
+
+  /order:
+    post:
+      tags: [ 'Оформление заказа' ]
+      description: Оформление заказа выбранного направления
+      parameters:
+        $ref: './parameters/order.yaml'
+      responses:
+        200:
+          description: Успешный ответ
