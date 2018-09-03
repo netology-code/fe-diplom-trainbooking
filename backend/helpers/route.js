@@ -1,7 +1,7 @@
 import {
   mergeWith, omit, or, pick,
   pickBy, range, isNil, compose, not,
-  inc, equals as eq,
+  inc, equals as eq, whereEq,
   mapObjIndexed
 } from 'ramda';
 import moment from 'moment/moment';
@@ -15,9 +15,12 @@ const boolProps = [
     'have_air_conditioning',
     'is_express'
   ],
-  getBoolProps = compose( mapObjIndexed( Boolean ), pick( boolProps )),
+  getBoolProps = compose(
+    mapObjIndexed( val => val === 'true' ),
+    pick( boolProps )
+  ),
   isNotNil = compose( not, isNil ),
-  omitNil = compose( pickBy( isNotNil ), getBoolProps );
+  omitEmptyBoolProps = compose( pickBy( isNotNil ), getBoolProps );
 
 export const toRoute = item => {
   const omitProps = [
@@ -129,7 +132,7 @@ export const getPriceCriteria = ( min, max ) => {
 };
 
 export const getBoolPropsCriteria = attributes => {
-  return omitNil( attributes );
+  return omitEmptyBoolProps( attributes );
 };
 
 export const toSeconds = value => +Math.round( value / 1000 );
@@ -148,13 +151,14 @@ export const getSortAttribute = value => {
 };
 
 export const toAvailableSeats = boughtSeats => coach => {
-  const eqTrain = eq( coach.train ),
-    boughtTrainSeats = boughtSeats.filter(({ train }) => eqTrain( train )),
+  const eqCoach = eq( coach._id ),
+    boughtCoachSeats = boughtSeats
+      .filter(({ coach }) => eqCoach( coach )),
     seats = range( 0, coach.available_seats )
       .map( position => {
         const index = inc( position ),
           eqIndex = eq( index ),
-          seat = boughtTrainSeats.find(({ index }) => eqIndex( index )),
+          seat = boughtCoachSeats.find(({ index }) => eqIndex( index )),
           available = isNil( seat );
         return {
           index,
@@ -167,8 +171,12 @@ export const toAvailableSeats = boughtSeats => coach => {
   };
 };
 
-export const toSeats = ( route, train ) => {
+export const toSeats = ( route, train, attributes ) => {
   const { coaches = [] } = train,
+    criteria = omitEmptyBoolProps( attributes ),
     { bought_seats: boughtSeats = [] } = route;
-  return coaches.map( toAvailableSeats( boughtSeats ));
+  console.log( criteria );
+  return coaches
+    .filter( whereEq( criteria ))
+    .map( toAvailableSeats( boughtSeats, criteria ));
 };

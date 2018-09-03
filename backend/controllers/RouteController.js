@@ -38,8 +38,7 @@ class RouteController extends Controller {
         _id: route.train
       })
         .populate( 'coaches' ),
-      seats = toSeats( route, train );
-    console.log( train );
+      seats = toSeats( route, train, req.query );
     return res.send( seats );
   }
   async actionRoutes( req, res ) {

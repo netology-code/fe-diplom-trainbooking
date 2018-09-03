@@ -3,19 +3,19 @@
   in: path
   type: string
   required: true
-- name: is_first_class
+- name: have_first_class
   description: Люкс
   type: boolean
   in: query
-- name: is_second_class
+- name: have_second_class
   description: Купе
   type: boolean
   in: query
-- name: is_third_class
+- name: have_third_class
   description: Плацкарт
   type: boolean
   in: query
-- name: is_fourth_class
+- name: have_fourth_class
   description: Сидячее место
   type: boolean
   in: query

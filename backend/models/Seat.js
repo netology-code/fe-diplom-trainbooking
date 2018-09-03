@@ -11,11 +11,11 @@ const Seat = Waterline.Collection.extend({
     train: {
       model: 'train'
     },
+    coach: {
+      model: 'coach'
+    },
     route: {
       model: 'route'
-    },
-    type: {
-      type: 'string'
     },
     index: {
       type: 'number'
