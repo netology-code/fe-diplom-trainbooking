@@ -13,6 +13,34 @@ properties:
         coach_id:
           description: Идентификатор вагона
           type: string
+        person_info:
+          type: object
+          description: Информация о пассажире
+          properties:
+            is_adult:
+              type: boolean
+              description: Взрослый/детский
+            first_name:
+              type: string
+              description: Имя
+            last_name:
+              type: string
+              description: Фамилия
+            patronymic:
+              type: string
+              description: Отчество
+            gender:
+              type: boolean
+              description: Пол (true - мужской)
+            birthday:
+              type: string
+              description: День рождения (в формате YYYY-MM-DD)
+            document_type:
+              type: string
+              description: Тип документа
+            document_data:
+              type: string
+              description: Данные документа (одной строкой)
         seat_number:
           description: Номер места в вагоне
           type: number

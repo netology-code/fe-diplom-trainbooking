@@ -5,6 +5,30 @@
   schema:
     type: object
     properties:
+      user:
+        type: object
+        properties:
+          first_name:
+            type: string
+            description: Имя
+          last_name:
+            type: string
+            description: Фамилия
+          patronymic:
+            type: string
+            description: Отчество
+          phone:
+            type: string
+            description: Телефон
+          email:
+            type: string
+            description: E-mail
+          payment_method:
+            type: string
+            description: Способ оплаты (принимает значения cash или online)
+            enum:
+              - cash
+              - online
       departure:
         $ref: './models/OrderDirection.yaml'
         description: Информация об отбытии
