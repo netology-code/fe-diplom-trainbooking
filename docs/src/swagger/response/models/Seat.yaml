@@ -1,9 +1,6 @@
 type: object
 description: Место в вагоне
 properties:
-  _id:
-    type: string
-    description: Идентификатор места в системе
   index:
     type: number
     description: Числовой номер места в вагоне

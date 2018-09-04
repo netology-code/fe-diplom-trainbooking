@@ -33,9 +33,26 @@ class App {
     });
   }
   applyMiddleware() {
-    const app = this.express;
+    const app = this.express,
+      verify = ( req, res, buf ) => {
+        req.rawBody = buf.toString();
+      };
+
     app.use( cors());
-    app.use( bodyParser.json());
+    app.use(( req, res, next ) => {
+      bodyParser.json({
+        verify,
+      })( req, res, ( err ) => {
+        if ( !err ) {
+          return next();
+        }
+
+        res.send({
+          error: err.message
+        })
+      });
+    });
+
   }
   onStart() {
     console.log( `Сервер запущен по адресу: ${this._url}` );

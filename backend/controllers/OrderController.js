@@ -6,7 +6,7 @@ import { toSeats } from '../helpers/order';
 class OrderController extends Controller {
   register() {
     const app = this.app.express;
-    app.post( '/order', cors(), this.actionOrder.bind( this ));
+    app.post( '/order', cors(), this.safeAction( this.actionOrder ));
   }
   async actionOrder( req, res ) {
     const { body } = req,

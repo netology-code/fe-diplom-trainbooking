@@ -12,10 +12,10 @@ import Controller from './Controller';
 class RouteController extends Controller {
   register() {
     const app = this.app.express;
-    app.get( '/routes', cors(), this.actionRoutes.bind( this ));
-    app.get( '/routes/:id/seats', cors(), this.actionSeats.bind( this ));
-    app.get( '/routes/cities', cors(), this.actionCities.bind( this ));
-    app.get( '/routes/last', cors(), this.actionLastRoutes.bind( this ));
+    app.get( '/routes', cors(), this.safeAction( this.actionRoutes ));
+    app.get( '/routes/:id/seats', cors(), this.safeAction( this.actionSeats ));
+    app.get( '/routes/cities', cors(), this.safeAction( this.actionCities ));
+    app.get( '/routes/last', cors(), this.safeAction( this.actionLastRoutes ));
   }
   async actionLastRoutes( req, res ) {
     const { Route } = this.app.db.models,
