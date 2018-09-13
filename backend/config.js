@@ -8,7 +8,7 @@ const localConfigPath = path.join( __dirname, 'config.local.js' );
 let localConfig = fs.existsSync( localConfigPath ) ? require( localConfigPath ) : {};
 module.exports = mergeDeepWith( concat,
   {
-    port: 3001,
+    port: 3001 || process.env.PORT,
     db: {
       adapters: {
         mongo: sailsMongoAdapter

@@ -6,7 +6,6 @@
   "author": "Vladimir Yazykov <neizerth@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run backend",
     "backend": "babel-node backend/app.js",
     "api": "babel-node docs/app.js",
     "db:seed": "babel-node database/seed.js",
@@ -67,5 +66,9 @@
     "webpack-dev-middleware": "^3.2.0",
     "webpack-hot-middleware": "^2.22.3",
     "webpack-stream": "^5.1.1"
+  },
+  "engines": {
+    "node": "10.4.x",
+    "npm": "6.4.x"
   }
 }
