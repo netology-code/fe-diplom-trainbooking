@@ -6,6 +6,7 @@
   "author": "Vladimir Yazykov <neizerth@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "npm run backend",
     "backend": "babel-node backend/app.js",
     "api": "babel-node docs/app.js",
     "db:seed": "babel-node database/seed.js",
@@ -15,6 +16,7 @@
     "api:build": "gulp api:build"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "image-webpack-loader": "^4.3.1",
