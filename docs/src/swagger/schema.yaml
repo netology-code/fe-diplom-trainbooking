@@ -3,8 +3,8 @@ info:
   version: 0.0.1
   title: Netology TrainBooking API
 schemes:
-  - http
-host: localhost:3001
+  - https
+host: netology-trainbooking.herokuapp.com
 
 paths:
   /routes/cities:
