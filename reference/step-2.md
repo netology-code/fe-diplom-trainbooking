@@ -10,10 +10,15 @@
 Все макеты располагаются в сервисе Figma по 
 [этой ссылке](https://www.figma.com/file/7981GjEsjSpBUKolk4xFoT/Заказ-билетов?node-id=0%3A1)
 
+Карта переходов на экранах:
+
+![Карта переходов](./images/screens.png)
+
+[Ссылка на изображение](./images/screens.png)
+
 ## Требования к вёрстке
 
-1. Кроссбраузерная (работает в современных версиях
-Edge, Safari, Chrome, Opera, Firefox)
+1. Корректно отображается в Chrome
 2. Валидные HTML и CSS
 3. В наименовании CSS-классов желательно придерживаться методологии
 [БЭМ](https://ru.bem.info/methodology/quick-start/)
