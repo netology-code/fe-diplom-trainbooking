@@ -24,7 +24,7 @@
     "pug-loader": "^2.4.0",
     "ramda": "^0.25.0",
     "sails-mongo": "^1.0.1",
-    "swagger-ui": "^3.18.2",
+    "swagger-ui": "^3.23.11",
     "waterline": "^0.13.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
