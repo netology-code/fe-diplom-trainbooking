@@ -9,7 +9,7 @@ module.exports = {
     datastores: {
       default: {
         adapter: 'mongo',
-        url: process.env.DB_URL || 'mongodb://localhost:27017/netology-fe-diplom'
+        url: process.env.DB_URL || 'mongodb://root@localhost:27017/netology'
       }
     }
   },

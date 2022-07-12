@@ -6,7 +6,7 @@
   "author": "Vladimir Yazykov <neizerth@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "backend": "babel-node backend/app.js",
+    "start": "babel-node backend/app.js",
     "api": "babel-node docs/app.js",
     "db:seed": "babel-node database/seed.js",
     "db:seed:dev": "nodemon --exec babel-node -- database/seed.js",
