@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  backend:
+    build: .
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo
+    environment:
+      - WATERLINE_ADAPTER_TESTS_DATABASE=sails-mongo
+      - DB_URL=mongodb://root@mongo:27017/netology
+  mongo:
+    image: mongo:4
+    restart: always
+    environment:
+        MONGO_INITDB_DATABASE: netology
+#    ports:
+#      - 27017:27017
